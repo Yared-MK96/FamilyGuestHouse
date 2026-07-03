@@ -7,7 +7,8 @@
     "admin": "cd admin && npm run dev",
     "dev": "concurrently \"npm run server\" \"npm run admin\"",
     "install:all": "cd server && npm install && cd ../admin && npm install",
-    "build:admin": "cd admin && npm run build"
+    "build:admin": "cd admin && npm run build",
+    "build": "node build.js"
   },
   "devDependencies": {
     "concurrently": "^10.0.3"
