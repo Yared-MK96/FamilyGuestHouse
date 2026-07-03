@@ -1,0 +1,12 @@
+{
+  "name": "family-guest-house",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "server": "cd server && npm run dev",
+    "admin": "cd admin && npm run dev",
+    "dev": "npm run server & npm run admin",
+    "install:all": "cd server && npm install && cd ../admin && npm install",
+    "build:admin": "cd admin && npm run build"
+  }
+}
