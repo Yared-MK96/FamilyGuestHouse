@@ -5,11 +5,11 @@ export default function Home() {
     <div className="w-full">
       {/* Hero Section */}
       <section
-        className="relative w-full h-[80vh] flex items-center justify-center bg-cover bg-center bg-no-repeat"
+        className="relative w-full min-h-[85vh] flex items-center justify-center bg-cover bg-bottom bg-no-repeat"
         style={{ backgroundImage: 'url("/hotel_hero.png")' }}
       >
         <div className="absolute inset-0 bg-black/40 z-10"></div>
-        <div className="relative z-20 text-center text-white px-4">
+        <div className="relative z-20 text-center text-white px-4 pb-20">
           <h1 className="text-4xl md:text-6xl font-bold mb-4 drop-shadow-md text-secondary">
             Welcome to Family Guest House
           </h1>
@@ -31,22 +31,22 @@ export default function Home() {
             </Link>
           </div>
         </div>
-      </section>
 
-      {/* Feature Strip */}
-      <section className="bg-primary text-white py-10 px-4">
-        <div className="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-          <div>
-            <p className="text-3xl font-bold mb-1">4+</p>
-            <p className="text-sm opacity-80">Room Types</p>
-          </div>
-          <div>
-            <p className="text-3xl font-bold mb-1">100%</p>
-            <p className="text-sm opacity-80">Guest Satisfaction</p>
-          </div>
-          <div>
-            <p className="text-3xl font-bold mb-1">24/7</p>
-            <p className="text-sm opacity-80">Support Available</p>
+        {/* Feature Strip Overlay */}
+        <div className="absolute bottom-0 left-0 w-full bg-primary/20 backdrop-blur-sm text-white py-3 px-4 z-28">
+          <div className="container mx-auto grid grid-cols-3 gap-2 sm:gap-4 md:gap-8 text-center">
+            <div>
+              <p className="text-xl md:text-2xl font-bold mb-0.5">4+</p>
+              <p className="text-xs md:text-sm opacity-80 uppercase tracking-wider">Room Types</p>
+            </div>
+            <div>
+              <p className="text-xl md:text-2xl font-bold mb-0.5">100%</p>
+              <p className="text-xs md:text-sm opacity-80 uppercase tracking-wider">Guest Satisfaction</p>
+            </div>
+            <div>
+              <p className="text-xl md:text-2xl font-bold mb-0.5">24/7</p>
+              <p className="text-xs md:text-sm opacity-80 uppercase tracking-wider">Support Available</p>
+            </div>
           </div>
         </div>
       </section>
