@@ -33,7 +33,7 @@ export default function Navbar() {
     <header className="w-full shadow-sm z-50 sticky top-0 relative">
       {/* Top Bar - Hidden on Mobile */}
       <div className="hidden md:flex bg-[#1a191f] text-gray-200 text-sm py-2 px-4 md:px-8 justify-between items-center">
-        <div className="flex items-center gap-6 text-xs">
+        <div className="flex items-center gap-10 text-xs">
           <div className="flex items-center gap-2">
             <FaMapMarkerAlt className="text-secondary" />
             <span>{HOTEL_INFO.address}</span>
