@@ -4,7 +4,7 @@ export default function Contact() {
   return (
     <div className="bg-gray-50 py-16 md:py-24">
       <div className="container mx-auto px-4 md:px-8">
-        
+
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h1 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4">Contact Us</h1>
           <div className="w-24 h-1 bg-primary mx-auto mb-6"></div>
@@ -16,9 +16,9 @@ export default function Contact() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           <div className="lg:col-span-1 space-y-6">
             {[
-              { Icon: FaMapMarkerAlt, title: 'Our Location', text: 'HVC5+87M Family Guest House\nNaramo, Hosaina' },
-              { Icon: FaPhoneAlt,     title: 'Phone Number', text: '+251909517777' },
-              { Icon: FaEnvelope,     title: 'Email Address', text: 'familyguesthouse@gmail.com' },
+              { Icon: FaMapMarkerAlt, title: 'Our Location', text: 'HVC5+87M Family Guest House\nMoyale, Ethiopia' },
+              { Icon: FaPhoneAlt, title: 'Phone Number', text: '+251951141620' },
+              { Icon: FaEnvelope, title: 'Email Address', text: 'familyguesthouse@gmail.com' },
             ].map(({ Icon, title, text }) => (
               <div key={title} className="bg-white p-8 rounded-xl shadow-md text-center hover:shadow-lg transition-shadow">
                 <div className="w-16 h-16 mx-auto bg-gray-100 rounded-full flex items-center justify-center mb-4">
@@ -37,16 +37,16 @@ export default function Contact() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
                     <label className="block text-gray-700 font-medium mb-2">First Name</label>
-                    <input type="text" className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary" placeholder="John" />
+                    <input type="text" className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary" placeholder="kebede" />
                   </div>
                   <div>
                     <label className="block text-gray-700 font-medium mb-2">Last Name</label>
-                    <input type="text" className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary" placeholder="Doe" />
+                    <input type="text" className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary" placeholder="Ali" />
                   </div>
                 </div>
                 <div>
                   <label className="block text-gray-700 font-medium mb-2">Email Address</label>
-                  <input type="email" className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary" placeholder="john@example.com" />
+                  <input type="email" className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary" placeholder="[EMAIL_ADDRESS]" />
                 </div>
                 <div>
                   <label className="block text-gray-700 font-medium mb-2">Subject</label>

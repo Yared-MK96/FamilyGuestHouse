@@ -4,13 +4,13 @@ export default function About() {
   return (
     <div className="bg-white py-16 md:py-24">
       <div className="container mx-auto px-4 md:px-8">
-        
+
         <div className="flex flex-col lg:flex-row gap-12 items-center mb-20">
           <div className="lg:w-1/2">
             <h1 className="text-4xl md:text-5xl font-bold text-gray-800 mb-6">About Family Guest House</h1>
             <div className="w-20 h-1 bg-primary mb-8"></div>
             <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-              Located in the vibrant heart of Hosaina, Family Guest House has been welcoming travelers with open arms and warm hospitality. Our mission is to provide a "home away from home" experience for every guest.
+              Located in the vibrant heart of Moyale, Family Guest House has been welcoming travelers with open arms and warm hospitality. Our mission is to provide a "home away from home" experience for every guest.
             </p>
             <p className="text-lg text-gray-600 leading-relaxed mb-8">
               Whether you are here for a quick business trip, a family vacation, or a peaceful retreat, our dedicated staff ensures your stay is comfortable, memorable, and absolutely stress-free.
@@ -20,9 +20,9 @@ export default function About() {
             </Link>
           </div>
           <div className="lg:w-1/2">
-            <img 
-              src="/hotel_hero.png" 
-              alt="Family Guest House Exterior" 
+            <img
+              src="/hotel_hero.png"
+              alt="Family Guest House Exterior"
               className="w-full h-[400px] object-cover rounded-lg shadow-xl"
             />
           </div>
@@ -32,7 +32,7 @@ export default function About() {
           <h2 className="text-3xl font-bold text-center text-gray-800 mb-12">Why Choose Us?</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
             {[
-              { num: '1', title: 'Prime Location', desc: 'Situated in Naramo, providing easy access to major city attractions and business centers.' },
+              { num: '1', title: 'Prime Location', desc: 'Situated in Moyale, providing easy access to major city attractions and business centers.' },
               { num: '2', title: 'Exceptional Service', desc: 'Our staff is available 24/7 to cater to your every need with a friendly smile.' },
               { num: '3', title: 'Modern Comfort', desc: 'Enjoy meticulously designed rooms equipped with modern amenities for a perfect stay.' },
             ].map(({ num, title, desc }) => (
