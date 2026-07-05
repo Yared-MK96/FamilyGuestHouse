@@ -63,6 +63,23 @@ export default function Contact() {
             </div>
           </div>
         </div>
+
+        {/* Map Section */}
+        <div className="mt-16 bg-white p-4 md:p-8 rounded-xl shadow-md">
+          <h2 className="text-2xl font-bold text-gray-800 mb-6 text-center">Find Us on the Map</h2>
+          <div className="w-full h-[400px] rounded-lg overflow-hidden relative">
+            <iframe
+              src="https://maps.google.com/maps?q=3.536469,39.05341&t=k&z=18&output=embed"
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              allowFullScreen=""
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="Family Guest House Location"
+            ></iframe>
+          </div>
+        </div>
       </div>
     </div>
   );
