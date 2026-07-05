@@ -8,6 +8,7 @@ import authRoutes from './routes/auth.js';
 import roomsRoutes from './routes/rooms.js';
 import settingsRoutes from './routes/settings.js';
 import galleryRoutes from './routes/gallery.js';
+import bookingsRoutes from './routes/bookings.js';
 
 dotenv.config();
 
@@ -32,6 +33,7 @@ app.use('/api/auth', authRoutes);
 app.use('/api/rooms', roomsRoutes);
 app.use('/api/settings', settingsRoutes);
 app.use('/api/gallery', galleryRoutes);
+app.use('/api/bookings', bookingsRoutes);
 
 // Health check
 app.get('/api/health', (req, res) => {
