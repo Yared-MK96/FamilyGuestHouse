@@ -104,3 +104,23 @@ INSERT INTO rooms (name, description, price, badge, bed_type, is_featured, sort_
   ('Double Bed Room', 'Ideal for couples or friends traveling together. Features a comfortable double bed, en-suite bathroom, high-speed Wi-Fi, and complete modern comfort.', 99, 'Great Value', 'Double bed', false, 3),
   ('Deluxe Room', 'Experience premium luxury in our spacious Deluxe suite — king-size bed, upscale decor, panoramic views, and top-tier amenities.', 149, 'Luxury Pick', 'King bed', false, 4)
 ON CONFLICT DO NOTHING;
+
+-- Bookings table
+CREATE TABLE IF NOT EXISTS bookings (
+  id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
+  room_id UUID REFERENCES rooms(id),
+  guest_name TEXT NOT NULL,
+  guest_email TEXT,
+  guest_phone TEXT NOT NULL,
+  check_in DATE NOT NULL,
+  check_out DATE NOT NULL,
+  total_price DECIMAL(10,2),
+  status TEXT DEFAULT 'pending',
+  special_requests TEXT,
+  created_at TIMESTAMPTZ DEFAULT NOW(),
+  updated_at TIMESTAMPTZ DEFAULT NOW()
+);
+
+ALTER TABLE bookings ENABLE ROW LEVEL SECURITY;
+CREATE POLICY "Public insert access" ON bookings FOR INSERT WITH CHECK (true);
+CREATE POLICY "Full access for authenticated" ON bookings USING (true) WITH CHECK (true);
