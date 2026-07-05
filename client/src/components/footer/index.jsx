@@ -9,7 +9,7 @@ export default function Footer() {
         {/* Brand Section */}
         <div className="col-span-1 md:col-span-1">
           <Link to="/" className="flex items-center gap-2 text-2xl font-bold text-white mb-4">
-            <span className="text-primary">Family</span> Guest House
+            <span className="text-secondary">Family</span> Guest House
           </Link>
           <p className="text-sm text-gray-400 mb-6">
             Experience comfort, luxury, and warm hospitality in the heart of moyale. Your perfect stay awaits.
@@ -38,15 +38,15 @@ export default function Footer() {
           <h3 className="text-white font-bold text-lg mb-4">Contact Us</h3>
           <ul className="space-y-4 text-sm">
             <li className="flex items-start gap-3">
-              <FaMapMarkerAlt className="text-primary mt-1 shrink-0" />
+              <FaMapMarkerAlt className="text-secondary mt-1 shrink-0" />
               <span>HVC5+87M Family Guest House,<br />Moyale, Ethiopia</span>
             </li>
             <li className="flex items-center gap-3">
-              <FaPhoneAlt className="text-primary shrink-0" />
+              <FaPhoneAlt className="text-secondary shrink-0" />
               <span>+251951141620</span>
             </li>
             <li className="flex items-center gap-3">
-              <FaEnvelope className="text-primary shrink-0" />
+              <FaEnvelope className="text-secondary shrink-0" />
               <span>familyguesthouse@gmail.com</span>
             </li>
           </ul>
@@ -69,7 +69,7 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="container mx-auto px-4 mt-12 pt-8 border-t border-gray-800 text-center text-sm text-gray-500">
+      <div className="container mx-auto px-4 mt-12 pt-8 border-t border-gray-800 text-center text-secondary text-sm text-gray-500">
         <p>&copy; {new Date().getFullYear()} Family Guest House. All rights reserved.</p>
       </div>
     </footer>
