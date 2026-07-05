@@ -1,40 +1,6 @@
 import { Link } from 'react-router-dom';
 import { FaWifi, FaTv, FaCoffee, FaBed } from 'react-icons/fa';
-
-const ROOMS_DATA = [
-  {
-    id: 1,
-    title: "Standard Room",
-    description: "A comfortable and cozy room perfect for solo travelers or couples.",
-    price: 50,
-    image: "/y1.jpg",
-    amenities: ["Free WiFi", "TV", "Coffee Maker"]
-  },
-  {
-    id: 2,
-    title: "Deluxe Double Room",
-    description: "Spacious room with modern amenities and a beautiful city view.",
-    price: 85,
-    image: "/y2.jpg",
-    amenities: ["Free WiFi", "TV", "Mini Bar", "King Bed"]
-  },
-  {
-    id: 3,
-    title: "Family Suite",
-    description: "Large suite designed for families, offering maximum comfort and space.",
-    price: 120,
-    image: "/y3.jpg",
-    amenities: ["Free WiFi", "2 TVs", "Kitchenette", "Living Area"]
-  },
-  {
-    id: 4,
-    title: "Executive Suite",
-    description: "Our most luxurious suite with premium services and elegant decor.",
-    price: 200,
-    image: "/y4.jpg",
-    amenities: ["Free WiFi", "Smart TV", "Jacuzzi", "Ocean View"]
-  }
-];
+import { ROOMS_DATA } from '../../constants';
 
 export default function Rooms() {
   return (
@@ -43,7 +9,7 @@ export default function Rooms() {
         
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h1 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4">Our Accommodations</h1>
-          <div className="w-24 h-1 bg-[#a58641] mx-auto mb-6"></div>
+          <div className="w-24 h-1 bg-primary mx-auto mb-6"></div>
           <p className="text-lg text-gray-600">
             Choose from our selection of beautifully designed rooms and suites. 
             Each space is crafted to provide you with the utmost comfort and a memorable stay.
@@ -59,7 +25,7 @@ export default function Rooms() {
                   alt={room.title} 
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" 
                 />
-                <div className="absolute top-4 right-4 bg-[#a58641] text-white font-bold py-2 px-4 rounded shadow-md">
+                <div className="absolute top-4 right-4 bg-primary text-white font-bold py-2 px-4 rounded shadow-md">
                   ${room.price} <span className="text-sm font-normal">/ night</span>
                 </div>
               </div>
@@ -67,13 +33,13 @@ export default function Rooms() {
                 <h2 className="text-2xl font-bold text-gray-800 mb-3">{room.title}</h2>
                 <p className="text-gray-600 mb-6 line-clamp-2">{room.description}</p>
                 
-                <div className="flex flex-wrap gap-4 mb-8">
+                <div className="flex flex-wrap gap-3 mb-8">
                   {room.amenities.map((amenity, idx) => (
                     <div key={idx} className="flex items-center gap-2 text-sm text-gray-500 bg-gray-100 px-3 py-1 rounded-full">
-                      {amenity.includes("WiFi") && <FaWifi className="text-[#a58641]"/>}
-                      {amenity.includes("TV") && <FaTv className="text-[#a58641]"/>}
-                      {amenity.includes("Coffee") && <FaCoffee className="text-[#a58641]"/>}
-                      {amenity.includes("Bed") && <FaBed className="text-[#a58641]"/>}
+                      {amenity.includes("WiFi")   && <FaWifi   className="text-primary"/>}
+                      {amenity.includes("TV")     && <FaTv     className="text-primary"/>}
+                      {amenity.includes("Coffee") && <FaCoffee className="text-primary"/>}
+                      {amenity.includes("Bed")    && <FaBed    className="text-primary"/>}
                       <span>{amenity}</span>
                     </div>
                   ))}
@@ -82,13 +48,13 @@ export default function Rooms() {
                 <div className="flex items-center justify-between mt-auto">
                   <Link 
                     to={`/rooms/${room.id}`} 
-                    className="text-[#a58641] hover:text-[#8b6e32] font-semibold flex items-center gap-1 transition-colors"
+                    className="text-primary hover:text-primaryHover font-semibold flex items-center gap-1 transition-colors"
                   >
                     View Details &rarr;
                   </Link>
                   <Link 
                     to={`/booking?room=${room.id}`} 
-                    className="bg-gray-800 hover:bg-gray-900 text-white px-6 py-2 rounded transition-colors"
+                    className="bg-primary hover:bg-primaryHover text-white px-6 py-2 rounded transition-colors"
                   >
                     Book Now
                   </Link>

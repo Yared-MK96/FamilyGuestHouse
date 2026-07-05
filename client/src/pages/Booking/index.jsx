@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useSearchParams, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -8,15 +8,8 @@ import { FaCalendarAlt, FaUser, FaCheckCircle } from 'react-icons/fa';
 import { ROOMS_DATA } from '../../constants';
 import { calculateNights, formatCurrency } from '../../utils/helpers';
 
-const tomorrow = () => {
-  const d = new Date(); d.setDate(d.getDate() + 1);
-  return d.toISOString().split('T')[0];
-};
-
-const dayAfter = () => {
-  const d = new Date(); d.setDate(d.getDate() + 2);
-  return d.toISOString().split('T')[0];
-};
+const tomorrow = () => { const d = new Date(); d.setDate(d.getDate() + 1); return d.toISOString().split('T')[0]; };
+const dayAfter = () => { const d = new Date(); d.setDate(d.getDate() + 2); return d.toISOString().split('T')[0]; };
 
 const schema = z.object({
   firstName:   z.string().min(2, 'First name required'),
@@ -33,10 +26,10 @@ const schema = z.object({
 });
 
 export default function Booking() {
-  const [params]    = useSearchParams();
-  const navigate    = useNavigate();
-  const roomId      = parseInt(params.get('room')) || 1;
-  const room        = ROOMS_DATA.find(r => r.id === roomId) || ROOMS_DATA[0];
+  const [params] = useSearchParams();
+  const navigate = useNavigate();
+  const roomId   = parseInt(params.get('room')) || 1;
+  const room     = ROOMS_DATA.find(r => r.id === roomId) || ROOMS_DATA[0];
 
   const { register, handleSubmit, watch, formState: { errors, isSubmitting } } = useForm({
     resolver: zodResolver(schema),
@@ -48,10 +41,9 @@ export default function Booking() {
   const nights   = checkIn && checkOut ? Math.max(calculateNights(checkIn, checkOut), 0) : 0;
   const total    = nights * room.price;
 
-  const onSubmit = async (data) => {
+  const onSubmit = async () => {
     try {
-      // In production this calls bookingService.createBooking(...)
-      await new Promise(res => setTimeout(res, 800)); // simulate API
+      await new Promise(res => setTimeout(res, 800));
       toast.success('Booking request submitted! We will confirm shortly.');
       navigate('/');
     } catch {
@@ -59,95 +51,76 @@ export default function Booking() {
     }
   };
 
+  const inputCls = (err) =>
+    `mt-1 w-full px-4 py-2.5 rounded-lg border ${err ? 'border-red-400' : 'border-gray-300'} focus:outline-none focus:ring-2 focus:ring-primary`;
+
   return (
     <div className="bg-gray-50 py-16">
       <div className="container mx-auto px-4 md:px-8">
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold text-gray-800 mb-3">Book Your Stay</h1>
-          <div className="w-20 h-1 bg-[#a58641] mx-auto"></div>
+          <div className="w-20 h-1 bg-primary mx-auto"></div>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
-          {/* Booking Form */}
           <div className="lg:col-span-2 bg-white rounded-xl shadow-lg p-8">
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-6" noValidate>
               <h2 className="text-xl font-bold text-gray-700 flex items-center gap-2">
-                <FaUser className="text-[#a58641]" /> Guest Information
+                <FaUser className="text-primary" /> Guest Information
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                 <div>
                   <label className="text-sm font-medium text-gray-700">First Name</label>
-                  <input {...register('firstName')} placeholder="John"
-                    className={`mt-1 w-full px-4 py-2.5 rounded-lg border ${errors.firstName ? 'border-red-400' : 'border-gray-300'} focus:outline-none focus:ring-2 focus:ring-[#a58641]`}
-                  />
+                  <input {...register('firstName')} placeholder="John" className={inputCls(errors.firstName)} />
                   {errors.firstName && <p className="text-red-500 text-xs mt-1">{errors.firstName.message}</p>}
                 </div>
                 <div>
                   <label className="text-sm font-medium text-gray-700">Last Name</label>
-                  <input {...register('lastName')} placeholder="Doe"
-                    className={`mt-1 w-full px-4 py-2.5 rounded-lg border ${errors.lastName ? 'border-red-400' : 'border-gray-300'} focus:outline-none focus:ring-2 focus:ring-[#a58641]`}
-                  />
+                  <input {...register('lastName')} placeholder="Doe" className={inputCls(errors.lastName)} />
                   {errors.lastName && <p className="text-red-500 text-xs mt-1">{errors.lastName.message}</p>}
                 </div>
                 <div>
                   <label className="text-sm font-medium text-gray-700">Email</label>
-                  <input type="email" {...register('email')} placeholder="john@example.com"
-                    className={`mt-1 w-full px-4 py-2.5 rounded-lg border ${errors.email ? 'border-red-400' : 'border-gray-300'} focus:outline-none focus:ring-2 focus:ring-[#a58641]`}
-                  />
+                  <input type="email" {...register('email')} placeholder="john@example.com" className={inputCls(errors.email)} />
                   {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email.message}</p>}
                 </div>
                 <div>
                   <label className="text-sm font-medium text-gray-700">Phone</label>
-                  <input type="tel" {...register('phone')} placeholder="+251 9XX XXX XXX"
-                    className={`mt-1 w-full px-4 py-2.5 rounded-lg border ${errors.phone ? 'border-red-400' : 'border-gray-300'} focus:outline-none focus:ring-2 focus:ring-[#a58641]`}
-                  />
+                  <input type="tel" {...register('phone')} placeholder="+251 9XX XXX XXX" className={inputCls(errors.phone)} />
                   {errors.phone && <p className="text-red-500 text-xs mt-1">{errors.phone.message}</p>}
                 </div>
               </div>
-
               <hr />
               <h2 className="text-xl font-bold text-gray-700 flex items-center gap-2">
-                <FaCalendarAlt className="text-[#a58641]" /> Stay Details
+                <FaCalendarAlt className="text-primary" /> Stay Details
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
                 <div>
                   <label className="text-sm font-medium text-gray-700">Check-In</label>
-                  <input type="date" {...register('checkIn')}
-                    className={`mt-1 w-full px-4 py-2.5 rounded-lg border ${errors.checkIn ? 'border-red-400' : 'border-gray-300'} focus:outline-none focus:ring-2 focus:ring-[#a58641]`}
-                  />
+                  <input type="date" {...register('checkIn')} className={inputCls(errors.checkIn)} />
                   {errors.checkIn && <p className="text-red-500 text-xs mt-1">{errors.checkIn.message}</p>}
                 </div>
                 <div>
                   <label className="text-sm font-medium text-gray-700">Check-Out</label>
-                  <input type="date" {...register('checkOut')}
-                    className={`mt-1 w-full px-4 py-2.5 rounded-lg border ${errors.checkOut ? 'border-red-400' : 'border-gray-300'} focus:outline-none focus:ring-2 focus:ring-[#a58641]`}
-                  />
+                  <input type="date" {...register('checkOut')} className={inputCls(errors.checkOut)} />
                   {errors.checkOut && <p className="text-red-500 text-xs mt-1">{errors.checkOut.message}</p>}
                 </div>
                 <div>
                   <label className="text-sm font-medium text-gray-700">Guests</label>
-                  <input type="number" min="1" max="10" {...register('guests')}
-                    className="mt-1 w-full px-4 py-2.5 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#a58641]"
-                  />
+                  <input type="number" min="1" max="10" {...register('guests')} className="mt-1 w-full px-4 py-2.5 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary" />
                 </div>
               </div>
-
               <div>
                 <label className="text-sm font-medium text-gray-700">Special Requests (optional)</label>
-                <textarea {...register('specialNote')} rows="3" placeholder="Any special requirements or notes..."
-                  className="mt-1 w-full px-4 py-2.5 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#a58641]"
-                />
+                <textarea {...register('specialNote')} rows="3" placeholder="Any special requirements..." className="mt-1 w-full px-4 py-2.5 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary" />
               </div>
-
               <button type="submit" disabled={isSubmitting}
-                className="w-full bg-[#a58641] hover:bg-[#8b6e32] disabled:opacity-60 text-white font-bold py-3.5 rounded-lg transition-colors shadow-md text-lg"
-              >
+                className="w-full bg-primary hover:bg-primaryHover disabled:opacity-60 text-white font-bold py-3.5 rounded-lg transition-colors shadow-md text-lg">
                 {isSubmitting ? 'Confirming Booking…' : 'Confirm Booking'}
               </button>
             </form>
           </div>
 
-          {/* Summary Sidebar */}
           <div className="lg:col-span-1">
             <div className="bg-white rounded-xl shadow-lg overflow-hidden sticky top-24">
               <img src={room.image} alt={room.title} className="w-full h-48 object-cover" />
@@ -157,17 +130,15 @@ export default function Booking() {
                 <hr className="mb-4" />
                 <div className="space-y-2 text-sm">
                   <div className="flex justify-between text-gray-600">
-                    <span>Price per night</span>
-                    <span className="font-semibold">{formatCurrency(room.price)}</span>
+                    <span>Price per night</span><span className="font-semibold">{formatCurrency(room.price)}</span>
                   </div>
                   <div className="flex justify-between text-gray-600">
-                    <span>Nights</span>
-                    <span className="font-semibold">{nights > 0 ? nights : '--'}</span>
+                    <span>Nights</span><span className="font-semibold">{nights > 0 ? nights : '--'}</span>
                   </div>
                   <hr />
                   <div className="flex justify-between text-gray-800 font-bold text-base">
                     <span>Total</span>
-                    <span className="text-[#a58641]">{nights > 0 ? formatCurrency(total) : '--'}</span>
+                    <span className="text-primary">{nights > 0 ? formatCurrency(total) : '--'}</span>
                   </div>
                 </div>
                 <div className="mt-6 flex items-center gap-2 text-xs text-gray-400">

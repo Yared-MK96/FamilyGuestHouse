@@ -20,12 +20,12 @@ export default function DashboardLayout() {
   return (
     <div className="min-h-screen flex bg-gray-100 font-sans">
       {/* Sidebar */}
-      <aside className="w-64 bg-[#1a191f] text-gray-300 flex flex-col shadow-xl">
-        <div className="px-6 py-6 border-b border-gray-700">
-          <Link to="/" className="text-xl font-bold">
-            <span className="text-[#a58641]">Family</span> Guest House
+      <aside className="w-64 bg-primary text-gray-200 flex flex-col shadow-xl">
+        <div className="px-6 py-6 border-b border-white/10">
+          <Link to="/" className="text-xl font-bold text-white">
+            Family Guest House
           </Link>
-          <p className="text-xs text-gray-500 mt-1">Admin Dashboard</p>
+          <p className="text-xs text-white/50 mt-1">Admin Dashboard</p>
         </div>
         <nav className="flex-grow py-4">
           {sidebarLinks.map(({ label, icon: Icon, path }) => {
@@ -35,7 +35,7 @@ export default function DashboardLayout() {
                 key={path}
                 to={path}
                 className={`flex items-center gap-3 px-6 py-3 text-sm transition-colors
-                  ${active ? 'bg-[#a58641] text-white' : 'hover:bg-gray-800 hover:text-white'}`}
+                  ${active ? 'bg-white/10 text-white border-r-4 border-white' : 'hover:bg-white/10 hover:text-white'}`}
               >
                 <Icon size={16} />
                 <span>{label}</span>
@@ -44,19 +44,19 @@ export default function DashboardLayout() {
             );
           })}
         </nav>
-        <div className="px-6 py-4 border-t border-gray-700">
+        <div className="px-6 py-4 border-t border-white/10">
           <div className="flex items-center gap-3 mb-4">
-            <div className="w-9 h-9 rounded-full bg-[#a58641] flex items-center justify-center font-bold text-white text-sm">
+            <div className="w-9 h-9 rounded-full bg-white/20 flex items-center justify-center font-bold text-white text-sm">
               {user?.name?.charAt(0).toUpperCase() || 'A'}
             </div>
             <div>
               <p className="text-sm font-semibold text-white">{user?.name || 'Admin'}</p>
-              <p className="text-xs text-gray-500 capitalize">{user?.role || 'admin'}</p>
+              <p className="text-xs text-white/50 capitalize">{user?.role || 'admin'}</p>
             </div>
           </div>
           <button
             onClick={logout}
-            className="flex items-center gap-2 text-sm text-gray-400 hover:text-red-400 transition-colors"
+            className="flex items-center gap-2 text-sm text-white/60 hover:text-red-300 transition-colors"
           >
             <FaSignOutAlt /> Logout
           </button>

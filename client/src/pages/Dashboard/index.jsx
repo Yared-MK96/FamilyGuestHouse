@@ -2,17 +2,17 @@ import { FaBed, FaClipboardList, FaUsers, FaDollarSign, FaArrowUp, FaArrowDown }
 import { ROOMS_DATA } from '../../constants';
 
 const stats = [
-  { label: 'Total Rooms',    value: '4',   icon: FaBed,           change: null,   bg: 'bg-blue-50',   icon_bg: 'bg-blue-500' },
-  { label: 'Active Bookings',value: '12',  icon: FaClipboardList, change: '+5%',  up: true,  bg: 'bg-green-50',  icon_bg: 'bg-green-500' },
-  { label: 'Total Guests',   value: '38',  icon: FaUsers,         change: '+12%', up: true,  bg: 'bg-purple-50', icon_bg: 'bg-purple-500' },
-  { label: 'Revenue (Month)',value: '$2,400', icon: FaDollarSign,  change: '-3%',  up: false, bg: 'bg-yellow-50', icon_bg: 'bg-[#a58641]' },
+  { label: 'Total Rooms',     value: '4',     icon: FaBed,           change: null,   bg: 'bg-indigo-50',  icon_bg: 'bg-primary' },
+  { label: 'Active Bookings', value: '12',    icon: FaClipboardList, change: '+5%',  up: true,  bg: 'bg-green-50',   icon_bg: 'bg-green-500' },
+  { label: 'Total Guests',    value: '38',    icon: FaUsers,         change: '+12%', up: true,  bg: 'bg-purple-50',  icon_bg: 'bg-purple-500' },
+  { label: 'Revenue (Month)', value: '$2,400',icon: FaDollarSign,    change: '-3%',  up: false, bg: 'bg-yellow-50',  icon_bg: 'bg-yellow-500' },
 ];
 
 const recentBookings = [
-  { id: '#B001', guest: 'John Doe',      room: 'Standard Room',    checkIn: '2026-07-10', status: 'confirmed' },
-  { id: '#B002', guest: 'Jane Smith',    room: 'Deluxe Double',    checkIn: '2026-07-11', status: 'pending' },
-  { id: '#B003', guest: 'Ali Hassan',    room: 'Family Suite',     checkIn: '2026-07-12', status: 'confirmed' },
-  { id: '#B004', guest: 'Maria Lopes',   room: 'Executive Suite',  checkIn: '2026-07-14', status: 'cancelled' },
+  { id: '#B001', guest: 'John Doe',    room: 'Standard Room',   checkIn: '2026-07-10', status: 'confirmed' },
+  { id: '#B002', guest: 'Jane Smith',  room: 'Deluxe Double',   checkIn: '2026-07-11', status: 'pending' },
+  { id: '#B003', guest: 'Ali Hassan',  room: 'Family Suite',    checkIn: '2026-07-12', status: 'confirmed' },
+  { id: '#B004', guest: 'Maria Lopes', room: 'Executive Suite', checkIn: '2026-07-14', status: 'cancelled' },
 ];
 
 const statusBadge = {
@@ -54,7 +54,7 @@ export default function Dashboard() {
         <div className="xl:col-span-2 bg-white rounded-xl shadow-sm overflow-hidden">
           <div className="flex items-center justify-between px-6 py-4 border-b">
             <h2 className="font-bold text-gray-700">Recent Bookings</h2>
-            <span className="text-xs text-[#a58641] font-medium cursor-pointer hover:underline">View All</span>
+            <span className="text-xs text-primary font-medium cursor-pointer hover:underline">View All</span>
           </div>
           <div className="overflow-x-auto">
             <table className="w-full text-sm">
