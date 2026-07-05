@@ -21,7 +21,7 @@ export default function About() {
           </div>
           <div className="lg:w-1/2">
             <img
-              src="/hotel_hero.png"
+              src="/photo_2026-07-05_20-28-30.jpg"
               alt="Family Guest House Exterior"
               className="w-full h-[400px] object-cover rounded-lg shadow-xl"
             />

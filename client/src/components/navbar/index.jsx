@@ -35,15 +35,15 @@ export default function Navbar() {
       <div className="hidden md:flex bg-[#1a191f] text-gray-200 text-sm py-2 px-4 md:px-8 justify-between items-center">
         <div className="flex items-center gap-6 text-xs">
           <div className="flex items-center gap-2">
-            <FaMapMarkerAlt className="text-primary" />
+            <FaMapMarkerAlt className="text-secondary" />
             <span>{HOTEL_INFO.address}</span>
           </div>
           <div className="flex items-center gap-2">
-            <FaPhoneAlt className="text-primary" />
+            <FaPhoneAlt className="text-secondary" />
             <span>{HOTEL_INFO.phone}</span>
           </div>
           <div className="flex items-center gap-2">
-            <FaEnvelope className="text-primary" />
+            <FaEnvelope className="text-secondary" />
             <span>{HOTEL_INFO.email}</span>
           </div>
         </div>
@@ -110,8 +110,8 @@ export default function Navbar() {
         </div>
 
         {/* Mobile Toggle */}
-        <button 
-          className="md:hidden text-gray-700 p-1 hover:text-primary transition-colors focus:outline-none" 
+        <button
+          className="md:hidden text-gray-700 p-1 hover:text-primary transition-colors focus:outline-none"
           onClick={() => setMenuOpen(o => !o)}
           aria-label="Toggle Menu"
         >
@@ -131,7 +131,7 @@ export default function Navbar() {
               onClick={() => setMenuOpen(false)}
               className="md:hidden fixed inset-0 bg-black/40 z-40 top-[72px]" // 72px is approx header height
             />
-            
+
             {/* Dropdown Menu */}
             <motion.div
               initial={{ opacity: 0, y: -20 }}
@@ -145,17 +145,16 @@ export default function Navbar() {
                   <NavLink key={path} to={path} end={path === '/'}
                     onClick={() => setMenuOpen(false)}
                     className={({ isActive }) =>
-                      `block py-3 px-4 rounded-lg text-base font-medium transition-colors ${
-                        isActive ? 'bg-primary/5 text-primary' : 'text-gray-700 hover:bg-gray-50'
+                      `block py-3 px-4 rounded-lg text-base font-medium transition-colors ${isActive ? 'bg-primary/5 text-primary' : 'text-gray-700 hover:bg-gray-50'
                       }`
                     }
                   >
                     {label}
                   </NavLink>
                 ))}
-                
+
                 <hr className="my-4 border-gray-100" />
-                
+
                 {user ? (
                   <div className="space-y-3">
                     <div className="flex items-center gap-2 px-4 py-2 text-gray-700 font-medium">
@@ -163,23 +162,23 @@ export default function Navbar() {
                       <span>{user.name}</span>
                     </div>
                     {isAdmin && (
-                      <Link to="/dashboard" onClick={() => setMenuOpen(false)} 
+                      <Link to="/dashboard" onClick={() => setMenuOpen(false)}
                         className="block py-3 px-4 rounded-lg text-primary bg-primary/5 font-medium">
                         Dashboard
                       </Link>
                     )}
-                    <button onClick={() => { logout(); setMenuOpen(false); }} 
+                    <button onClick={() => { logout(); setMenuOpen(false); }}
                       className="w-full text-left py-3 px-4 text-red-600 font-medium hover:bg-red-50 rounded-lg transition-colors">
                       Logout
                     </button>
                   </div>
                 ) : (
                   <div className="flex flex-col gap-3 pt-2">
-                    <Link to="/login" onClick={() => setMenuOpen(false)} 
+                    <Link to="/login" onClick={() => setMenuOpen(false)}
                       className="w-full text-center text-base font-medium border border-gray-300 text-gray-700 py-3 rounded-lg hover:border-primary hover:text-primary transition-colors">
                       Login
                     </Link>
-                    <Link to="/register" onClick={() => setMenuOpen(false)} 
+                    <Link to="/register" onClick={() => setMenuOpen(false)}
                       className="w-full text-center text-base font-medium bg-primary text-white py-3 rounded-lg hover:bg-primaryHover transition-colors shadow-md">
                       Register
                     </Link>
