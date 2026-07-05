@@ -1,11 +1,12 @@
 import { FaBed, FaClipboardList, FaUsers, FaDollarSign, FaArrowUp, FaArrowDown } from 'react-icons/fa';
 import { ROOMS_DATA } from '../../constants';
+import { formatCurrency } from '../../utils/helpers';
 
 const stats = [
-  { label: 'Total Rooms',     value: '4',     icon: FaBed,           change: null,   bg: 'bg-indigo-50',  icon_bg: 'bg-primary' },
-  { label: 'Active Bookings', value: '12',    icon: FaClipboardList, change: '+5%',  up: true,  bg: 'bg-green-50',   icon_bg: 'bg-green-500' },
-  { label: 'Total Guests',    value: '38',    icon: FaUsers,         change: '+12%', up: true,  bg: 'bg-purple-50',  icon_bg: 'bg-purple-500' },
-  { label: 'Revenue (Month)', value: '$2,400',icon: FaDollarSign,    change: '-3%',  up: false, bg: 'bg-yellow-50',  icon_bg: 'bg-yellow-500' },
+  { label: 'Total Rooms',     value: '4',          icon: FaBed,           change: null,   bg: 'bg-indigo-50',  icon_bg: 'bg-primary' },
+  { label: 'Active Bookings', value: '12',         icon: FaClipboardList, change: '+5%',  up: true,  bg: 'bg-green-50',   icon_bg: 'bg-green-500' },
+  { label: 'Total Guests',    value: '38',         icon: FaUsers,         change: '+12%', up: true,  bg: 'bg-purple-50',  icon_bg: 'bg-purple-500' },
+  { label: 'Revenue (Month)', value: 'ETB 42,000', icon: FaDollarSign,    change: '-3%',  up: false, bg: 'bg-yellow-50',  icon_bg: 'bg-yellow-500' },
 ];
 
 const recentBookings = [
@@ -97,7 +98,7 @@ export default function Dashboard() {
                 <img src={room.image} alt={room.title} className="w-14 h-14 rounded-lg object-cover shrink-0" />
                 <div className="flex-grow min-w-0">
                   <p className="text-sm font-semibold text-gray-800 truncate">{room.title}</p>
-                  <p className="text-xs text-gray-500">${room.price} / night</p>
+                  <p className="text-xs text-gray-500">{formatCurrency(room.price)} / night</p>
                 </div>
                 <span className="text-xs bg-green-100 text-green-700 px-2 py-1 rounded-full whitespace-nowrap">Available</span>
               </div>

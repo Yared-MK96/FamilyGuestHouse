@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { FaWifi, FaTv, FaCoffee, FaBed } from 'react-icons/fa';
 import { ROOMS_DATA } from '../../constants';
+import { formatCurrency } from '../../utils/helpers';
 
 export default function Rooms() {
   return (
@@ -26,7 +27,7 @@ export default function Rooms() {
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" 
                 />
                 <div className="absolute top-4 right-4 bg-primary text-white font-bold py-2 px-4 rounded shadow-md">
-                  ${room.price} <span className="text-sm font-normal">/ night</span>
+                  {formatCurrency(room.price)} <span className="text-sm font-normal">/ night</span>
                 </div>
               </div>
               <div className="p-6 md:p-8">

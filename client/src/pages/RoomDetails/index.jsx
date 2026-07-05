@@ -1,6 +1,7 @@
 import { useParams, Link } from 'react-router-dom';
 import { FaCheckCircle } from 'react-icons/fa';
 import { ROOMS_DATA } from '../../constants';
+import { formatCurrency } from '../../utils/helpers';
 
 export default function RoomDetails() {
   const { id } = useParams();
@@ -24,7 +25,7 @@ export default function RoomDetails() {
         <div className="absolute bottom-0 left-0 w-full p-8 md:p-16 bg-gradient-to-t from-black/80 to-transparent">
           <div className="container mx-auto">
             <h1 className="text-4xl md:text-5xl font-bold text-white mb-2">{room.title}</h1>
-            <p className="text-xl text-gray-200">${room.price} <span className="text-sm">/ night</span></p>
+            <p className="text-xl text-gray-200">{formatCurrency(room.price)} <span className="text-sm">/ night</span></p>
           </div>
         </div>
       </div>
@@ -53,7 +54,7 @@ export default function RoomDetails() {
             <div className="bg-gray-50 border border-gray-200 rounded-lg p-6 shadow-sm sticky top-24">
               <h3 className="text-xl font-bold text-gray-800 mb-4">Reserve this Room</h3>
               <div className="text-3xl font-bold text-primary mb-6">
-                ${room.price}<span className="text-lg text-gray-500 font-normal"> / night</span>
+                {formatCurrency(room.price)}<span className="text-lg text-gray-500 font-normal"> / night</span>
               </div>
               <Link 
                 to={`/booking?room=${room.id}`}

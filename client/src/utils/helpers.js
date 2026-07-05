@@ -1,5 +1,5 @@
-export const formatCurrency = (amount, currency = 'USD') => {
-  return new Intl.NumberFormat('en-US', { style: 'currency', currency }).format(amount);
+export const formatCurrency = (amount, currency = 'ETB') => {
+  return new Intl.NumberFormat('en-ET', { style: 'currency', currency }).format(amount);
 };
 
 export const formatDate = (dateString) => {
@@ -20,7 +20,7 @@ export const truncateText = (text, maxLength = 100) => {
 export const getStatusColor = (status) => {
   const colors = {
     confirmed: 'text-green-600 bg-green-100',
-    pending:   'text-yellow-600 bg-yellow-100',
+    pending: 'text-yellow-600 bg-yellow-100',
     cancelled: 'text-red-600 bg-red-100',
     completed: 'text-blue-600 bg-blue-100',
   };
