@@ -1,14 +1,15 @@
 import axios from 'axios';
+import { API_BASE_URL } from '../../constants';
 
 // Create an axios instance specifically for the admin panel
 const adminApi = axios.create({
-  baseURL: '/api',
+  baseURL: API_BASE_URL,
   withCredentials: true,
 });
 
 // Add an interceptor to inject the auth token on every request
 adminApi.interceptors.request.use((config) => {
-  const token = localStorage.getItem('token');
+  const token = localStorage.getItem('fgh_token');
   if (token) {
     config.headers.Authorization = `Bearer ${token}`;
   }
