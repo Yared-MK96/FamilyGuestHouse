@@ -1,7 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
 
-// Layouts
-import DashboardLayout from './layouts/DashboardLayout';
+import AdminLayout from './admin/layouts/AdminLayout';
 
 // Route Guards
 import { ProtectedRoute, AdminRoute } from './routes';
@@ -19,20 +18,24 @@ import Login     from './pages/Login';
 import Register  from './pages/Register';
 import NotFound  from './pages/NotFound';
 
-// Dashboard sub-pages
-import Dashboard from './pages/Dashboard';
+// Admin Pages
+import AdminDashboard from './admin/pages/Dashboard';
+import AdminRooms from './admin/pages/RoomsManager';
+import AdminBookings from './admin/pages/BookingsManager';
+import AdminPayments from './admin/pages/PaymentsManager';
+import AdminUsers from './admin/pages/UsersManager';
 
 function App() {
   return (
     <Routes>
-      {/* ── Admin / Dashboard (own layout, no Navbar/Footer) ── */}
+      {/* ── Admin Portal ── */}
       <Route element={<AdminRoute />}>
-        <Route element={<DashboardLayout />}>
-          <Route path="/dashboard"           element={<Dashboard />} />
-          <Route path="/dashboard/rooms"     element={<div className="p-4 text-gray-600">Rooms Management — coming soon</div>} />
-          <Route path="/dashboard/bookings"  element={<div className="p-4 text-gray-600">Bookings Management — coming soon</div>} />
-          <Route path="/dashboard/customers" element={<div className="p-4 text-gray-600">Customers — coming soon</div>} />
-          <Route path="/dashboard/settings"  element={<div className="p-4 text-gray-600">Settings — coming soon</div>} />
+        <Route element={<AdminLayout />}>
+          <Route path="/admin"          element={<AdminDashboard />} />
+          <Route path="/admin/rooms"    element={<AdminRooms />} />
+          <Route path="/admin/bookings" element={<AdminBookings />} />
+          <Route path="/admin/payments" element={<AdminPayments />} />
+          <Route path="/admin/users"    element={<AdminUsers />} />
         </Route>
       </Route>
 
