@@ -1,6 +1,6 @@
 import { useParams, Link } from 'react-router-dom';
 import { FaCheckCircle } from 'react-icons/fa';
-import { ROOMS_DATA } from '../../constants';
+import { ROOMS_DATA, HOTEL_INFO } from '../../constants';
 import { formatCurrency } from '../../utils/helpers';
 
 export default function RoomDetails() {
@@ -56,12 +56,14 @@ export default function RoomDetails() {
               <div className="text-3xl font-bold text-primary mb-6">
                 {formatCurrency(room.price)}<span className="text-lg text-gray-500 font-normal"> / night</span>
               </div>
-              <Link 
-                to={`/booking?room=${room.id}`}
+              <a 
+                href={HOTEL_INFO.telegramBot} 
+                target="_blank"
+                rel="noopener noreferrer"
                 className="block w-full bg-primary hover:bg-primaryHover text-white text-center py-3 rounded font-bold transition-colors"
               >
-                Proceed to Booking
-              </Link>
+                Book Now via Telegram
+              </a>
               <p className="text-sm text-gray-500 mt-4 text-center">
                 You won't be charged yet.
               </p>
