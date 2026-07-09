@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { FaWifi, FaTv, FaCoffee, FaBed } from 'react-icons/fa';
-import { ROOMS_DATA } from '../../constants';
+import { ROOMS_DATA, HOTEL_INFO } from '../../constants';
 import { formatCurrency } from '../../utils/helpers';
 
 export default function Rooms() {
@@ -54,7 +54,7 @@ export default function Rooms() {
                     View Details &rarr;
                   </Link>
                   <a 
-                    href="https://t.me/FamilyGuestHouseBot" 
+                    href={HOTEL_INFO.telegramBot} 
                     target="_blank"
                     rel="noopener noreferrer"
                     className="bg-primary hover:bg-primaryHover text-white px-6 py-2 rounded transition-colors"

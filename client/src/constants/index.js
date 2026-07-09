@@ -5,6 +5,7 @@ export const HOTEL_INFO = {
   phone: '+251951141620',
   email: 'familyguesthouse@gmail.com',
   address: 'HVC5+87M Family Guest House,moyale',
+  telegramBot: 'https://t.me/FamilyGuestHouseBot',
 };
 
 export const ROOMS_DATA = [
