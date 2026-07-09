@@ -1,9 +1,10 @@
 BOT_TOKEN = "8867194880:AAGX7_fslqWX3Hh3VeF7S7qUyj40ZJF3Wpc"
-ADMIN_CHAT_ID = 7627736771
+ADMIN_CHAT_ID = 7865044151
+ADMIN_USERNAME = "Jaredo_m"
 
 BANK_ACCOUNTS = {
-    "telebirr": "📱 *Telebirr*\n\nPhone: +251951141620\nName: Family Guest House",
-    "cbe": "🏦 *CBE (Commercial Bank of Ethiopia)*\n\nAccount: 1000234567890\nName: Family Guest House",
-    "awash": "🏦 *Awash Bank*\n\nAccount: 1234567890\nName: Family Guest House",
-    "abyssinia": "🏦 *Abyssinia Bank*\n\nAccount: 1234567890\nName: Family Guest House",
+    "telebirr": "📱 <code>Telebirr</code>\n\nPhone: +251965521362\nName: Yared Mekonen",
+    "cbe": "🏦 <code>CBE (Commercial Bank of Ethiopia)</code>\n\nAccount: 1000685255026\nName: Yared Mekonen",
+    "awash": "🏦 <code>Awash Bank</code>\n\nAccount: 1234567890\nName: Yared Mekonen",
+    "abyssinia": "🏦 <code>Abyssinia Bank</code>\n\nAccount: 1234567890\nName: Yared Mekonen",
 }
