@@ -87,7 +87,7 @@ export default function Navbar() {
 
         {/* Right Side Actions (Notifications + Auth/Toggle) */}
         <div className="flex items-center gap-4 md:gap-6">
-          
+
           {/* Notification Bell */}
           <div className="relative">
             <button
@@ -102,8 +102,8 @@ export default function Navbar() {
 
             {/* Invisible Backdrop for click-outside */}
             {showNotifications && (
-              <div 
-                className="fixed inset-0 z-40" 
+              <div
+                className="fixed inset-0 z-40"
                 onClick={() => setShowNotifications(false)}
               ></div>
             )}
@@ -159,14 +159,14 @@ export default function Navbar() {
               </div>
             ) : (
               <>
-                <Link to="/login"
+                {/* <Link to="/login"
                   className="text-sm border border-gray-300 hover:border-primary text-gray-700 hover:text-primary px-4 py-2 rounded transition-colors">
                   Login
                 </Link>
                 <Link to="/register"
                   className="text-sm bg-primary hover:bg-primaryHover text-white px-4 py-2 rounded transition-colors shadow-sm">
                   Register
-                </Link>
+                </Link> */}
               </>
             )}
           </div>

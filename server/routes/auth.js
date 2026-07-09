@@ -61,4 +61,39 @@ router.get('/verify', (req, res) => {
   }
 });
 
+router.post('/register', async (req, res) => {
+  try {
+    const { name, email, password } = req.body;
+
+    if (!name || !email || !password) {
+      return res.status(400).json({ error: 'Name, email and password required' });
+    }
+
+    const { data: user, error } = await supabase
+      .from('users')
+      .select('*')
+      .eq('email', email)
+      .single();
+
+    if (!error || user) {
+      return res.status(401).json({ error: 'User already exists' });
+    }
+
+    const hashedPassword = await bcrypt.hash(password, 10);
+    const { data: newUser, error: insertError } = await supabase
+      .from('users')
+      .insert({ name, email, password: hashedPassword })
+      .single();
+
+    if (insertError) {
+      return res.status(500).json({ error: 'Failed to create user' });
+    }
+
+    const token = jwt.sign({ id: newUser.id, email: newUser.email, role: 'user' }, JWT_SECRET, { expiresIn: '24h' });
+    res.json({ token, user: { name: newUser.name } });
+  } catch (err) {
+    res.status(500).json({ error: 'Server error' });
+  }
+});
+
 export default router;
