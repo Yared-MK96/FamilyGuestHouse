@@ -53,12 +53,14 @@ export default function Rooms() {
                   >
                     View Details &rarr;
                   </Link>
-                  <Link 
-                    to={`/booking?room=${room.id}`} 
+                  <a 
+                    href="https://t.me/FamilyGuestHouseBot" 
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="bg-primary hover:bg-primaryHover text-white px-6 py-2 rounded transition-colors"
                   >
                     Book Now
-                  </Link>
+                  </a>
                 </div>
               </div>
             </div>
