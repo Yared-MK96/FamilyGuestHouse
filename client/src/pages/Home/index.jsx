@@ -72,7 +72,7 @@ export default function Home() {
               <img
                 src="/photo_2026-07-05_20-28-30.jpg"
                 alt="Family Guest House Exterior"
-                className="w-full h-[300px] md:h-[400px] object-cover rounded-lg shadow-xl"
+                className="w-full h-[300px] md:h-[400px] object-cover object-bottom md:object-center rounded-lg shadow-xl"
               />
             </div>
           </div>

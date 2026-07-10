@@ -1,6 +1,32 @@
+import { useState } from 'react';
 import { FaMapMarkerAlt, FaPhoneAlt, FaEnvelope } from 'react-icons/fa';
 
 export default function Contact() {
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    subject: '',
+    message: ''
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const { firstName, lastName, email, subject, message } = formData;
+    
+    // Build professional message
+    const formattedMessage = `Hello Yared,\n\nI am contacting you from the Family Guest House website.\n\n👤 *Name*: ${firstName || 'Not provided'} ${lastName || ''}\n📧 *Email*: ${email || 'Not provided'}\n📝 *Subject*: ${subject || 'General Inquiry'}\n\n💬 *Message*:\n${message || 'No message text'}`;
+    
+    // Telegram redirect link
+    const telegramUrl = `https://t.me/Jaredo_m?text=${encodeURIComponent(formattedMessage)}`;
+    window.open(telegramUrl, '_blank', 'noopener,noreferrer');
+  };
+
   return (
     <div className="bg-gray-50 py-16 md:py-24">
       <div className="container mx-auto px-4 md:px-8">
@@ -33,28 +59,68 @@ export default function Contact() {
           <div className="lg:col-span-2">
             <div className="bg-white p-8 md:p-12 rounded-xl shadow-md">
               <h2 className="text-2xl font-bold text-gray-800 mb-6">Send Us a Message</h2>
-              <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
+              <form className="space-y-6" onSubmit={handleSubmit}>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
                     <label className="block text-gray-700 font-medium mb-2">First Name</label>
-                    <input type="text" className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary" placeholder="kebede" />
+                    <input
+                      type="text"
+                      name="firstName"
+                      value={formData.firstName}
+                      onChange={handleChange}
+                      className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
+                      placeholder="kebede"
+                      required
+                    />
                   </div>
                   <div>
                     <label className="block text-gray-700 font-medium mb-2">Last Name</label>
-                    <input type="text" className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary" placeholder="Ali" />
+                    <input
+                      type="text"
+                      name="lastName"
+                      value={formData.lastName}
+                      onChange={handleChange}
+                      className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
+                      placeholder="Ali"
+                      required
+                    />
                   </div>
                 </div>
                 <div>
                   <label className="block text-gray-700 font-medium mb-2">Email Address</label>
-                  <input type="email" className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary" placeholder="[EMAIL_ADDRESS]" />
+                  <input
+                    type="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
+                    placeholder="[EMAIL_ADDRESS]"
+                    required
+                  />
                 </div>
                 <div>
                   <label className="block text-gray-700 font-medium mb-2">Subject</label>
-                  <input type="text" className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary" placeholder="How can we help?" />
+                  <input
+                    type="text"
+                    name="subject"
+                    value={formData.subject}
+                    onChange={handleChange}
+                    className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
+                    placeholder="How can we help?"
+                    required
+                  />
                 </div>
                 <div>
                   <label className="block text-gray-700 font-medium mb-2">Message</label>
-                  <textarea rows="5" className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary" placeholder="Your message here..."></textarea>
+                  <textarea
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
+                    rows="5"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
+                    placeholder="Your message here..."
+                    required
+                  ></textarea>
                 </div>
                 <button type="submit" className="w-full bg-primary hover:bg-primaryHover text-white font-bold py-3 px-8 rounded-md transition-colors shadow-md">
                   Send Message

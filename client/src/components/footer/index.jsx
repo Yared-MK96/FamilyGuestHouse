@@ -1,5 +1,14 @@
 import { Link } from 'react-router-dom';
-import { FaFacebookF, FaInstagram, FaYoutube, FaTiktok, FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa';
+import { FaFacebookF, FaInstagram, FaYoutube, FaTiktok, FaPhoneAlt, FaEnvelope, FaMapMarkerAlt, FaTelegram, FaWhatsapp } from 'react-icons/fa';
+
+const SOCIAL_LINKS = [
+  { Icon: FaFacebookF, href: '#' },
+  { Icon: FaInstagram, href: '#' },
+  { Icon: FaYoutube, href: '#' },
+  { Icon: FaTiktok, href: '#' },
+  { Icon: FaTelegram, href: 'https://t.me/FamilyGuestHouseBot' },
+  { Icon: FaWhatsapp, href: 'https://wa.me/251951141620' }
+];
 
 export default function Footer() {
   return (
@@ -15,8 +24,9 @@ export default function Footer() {
             Experience comfort, luxury, and warm hospitality in the heart of moyale. Your perfect stay awaits.
           </p>
           <div className="flex items-center gap-3">
-            {[FaFacebookF, FaInstagram, FaYoutube, FaTiktok].map((Icon, i) => (
-              <a key={i} href="#" className="w-8 h-8 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors">
+            {SOCIAL_LINKS.map(({ Icon, href }, i) => (
+              <a key={i} href={href} target={href !== '#' ? "_blank" : undefined} rel={href !== '#' ? "noopener noreferrer" : undefined}
+                className="w-8 h-8 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors">
                 <Icon size={14} className="text-white" />
               </a>
             ))}

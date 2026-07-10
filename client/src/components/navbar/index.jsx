@@ -3,7 +3,8 @@ import { Link, NavLink, useLocation } from 'react-router-dom';
 import {
   FaMapMarkerAlt, FaPhoneAlt, FaEnvelope,
   FaFacebookF, FaInstagram, FaYoutube, FaTiktok,
-  FaBars, FaTimes, FaUserCircle, FaBell
+  FaBars, FaTimes, FaUserCircle, FaBell,
+  FaTelegram, FaWhatsapp
 } from 'react-icons/fa';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useAuth } from '../../context/AuthContext';
@@ -14,6 +15,15 @@ const MOCK_NOTIFICATIONS = [
   { id: 1, title: 'New Discount!', message: 'Get 20% off on all luxury rooms this weekend.', time: '2 hours ago', isRead: false },
   { id: 2, title: 'Booking Confirmed', message: 'Your booking for Room 102 has been confirmed.', time: '1 day ago', isRead: true },
   { id: 3, title: 'Welcome!', message: 'Thank you for joining Family Guest House.', time: '2 days ago', isRead: true },
+];
+
+const SOCIAL_LINKS = [
+  { Icon: FaFacebookF, href: '#' },
+  { Icon: FaInstagram, href: '#' },
+  { Icon: FaYoutube, href: '#' },
+  { Icon: FaTiktok, href: '#' },
+  { Icon: FaTelegram, href: 'https://t.me/FamilyGuestHouseBot' },
+  { Icon: FaWhatsapp, href: 'https://wa.me/251951141620' }
 ];
 
 export default function Navbar() {
@@ -56,8 +66,8 @@ export default function Navbar() {
           </div>
         </div>
         <div className="flex items-center gap-3">
-          {[FaFacebookF, FaInstagram, FaYoutube, FaTiktok].map((Icon, i) => (
-            <a key={i} href="#"
+          {SOCIAL_LINKS.map(({ Icon, href }, i) => (
+            <a key={i} href={href} target={href !== '#' ? "_blank" : undefined} rel={href !== '#' ? "noopener noreferrer" : undefined}
               className="w-7 h-7 rounded-full border border-gray-600 flex items-center justify-center hover:bg-primary hover:border-primary transition-colors">
               <Icon size={12} />
             </a>
@@ -247,6 +257,17 @@ export default function Navbar() {
                     </Link>
                   </div>
                 )}
+
+                <hr className="my-4 border-gray-100" />
+                <div className="flex items-center justify-center gap-4 py-2">
+                  {SOCIAL_LINKS.map(({ Icon, href }, i) => (
+                    <a key={i} href={href} target={href !== '#' ? "_blank" : undefined} rel={href !== '#' ? "noopener noreferrer" : undefined}
+                      className="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center text-gray-600 hover:text-primary hover:border-primary transition-colors"
+                      onClick={() => setMenuOpen(false)}>
+                      <Icon size={18} />
+                    </a>
+                  ))}
+                </div>
               </div>
             </motion.div>
           </>
