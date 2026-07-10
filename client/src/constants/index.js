@@ -18,7 +18,7 @@ export const ROOMS_DATA = [
     price: 700,
     image: '/y1.jpg',
     capacity: 2,
-    amenities: ['Free WiFi', 'TV', 'Coffee Maker', 'Air Conditioning', 'Room Service', 'Daily Housekeeping'],
+    amenities: ['Free WiFi', 'Room Service', 'Daily Housekeeping'],
   },
   {
     id: 2,
@@ -29,7 +29,7 @@ export const ROOMS_DATA = [
     price: 1200,
     image: '/y2.jpg',
     capacity: 2,
-    amenities: ['Free WiFi', 'TV', 'Mini Bar', 'King Bed', 'Air Conditioning', 'City View', 'Bathrobes'],
+    amenities: ['Free WiFi', 'King Bed'],
   },
   {
     id: 3,
@@ -40,7 +40,7 @@ export const ROOMS_DATA = [
     price: 1800,
     image: '/y3.jpg',
     capacity: 5,
-    amenities: ['Free WiFi', '2 TVs', 'Kitchenette', 'Living Area', 'Dining Table', 'Multiple Beds'],
+    amenities: ['Free WiFi', 'Living Area', 'Multiple Beds'],
   },
   {
     id: 4,
@@ -51,7 +51,7 @@ export const ROOMS_DATA = [
     price: 2800,
     image: '/y4.jpg',
     capacity: 3,
-    amenities: ['Free WiFi', 'Smart TV', 'Jacuzzi', 'Lounge Access', 'Premium Toiletries', 'King Bed'],
+    amenities: ['Free WiFi', 'King Bed'],
   },
 ];
 

@@ -26,9 +26,7 @@ export default function Rooms() {
                   alt={room.title} 
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" 
                 />
-                <div className="absolute top-4 right-4 bg-primary text-white font-bold py-2 px-4 rounded shadow-md">
-                  {formatCurrency(room.price)} <span className="text-sm font-normal">/ night</span>
-                </div>
+
               </div>
               <div className="p-6 md:p-8">
                 <h2 className="text-2xl font-bold text-gray-800 mb-3">{room.title}</h2>
